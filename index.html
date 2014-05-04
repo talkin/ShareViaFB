@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app='my-car'>
+
+<head>
+    <title>my-car app</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" type="text/css">
+</head>
+
+<body>
+    <p>welcome</p>
+    <div ng-controller='CarselectionCtrl'>
+        <div>
+            <select ng-model='carMaker' ng-options='o as o for o in carMakers' ng-change='makerChange()' class='form-control'>
+                <option value="">Please choose your car maker</option>
+            </select>
+        </div>
+        <div>
+            <select ng-disabled='isCarModelDisable()' ng-model='carModel' ng-options='o as o for o in carModels' class='form-control'>
+                <option value="">Please choose your car model</option>
+            </select>
+        </div>
+
+        <img src="http://localbound.files.wordpress.com/2011/12/6960926-friends-eating-pizza.jpg" alt="my pizza image">
+        <br>
+        <input type="text" ng-model="pizzaName">pizza name: {{pizzaName}}
+        <br>
+        <input type="text" ng-model="pizzaDescription">pizza description: {{pizzaDescription}}
+        <br>current URL : {{currentUrl}}
+
+        <div facebook data-name='{{pizzaName}}' data-url='{{currentUrl}}' data-picture-url='http://localbound.files.wordpress.com/2011/12/6960926-friends-eating-pizza.jpg' data-caption='{{pizzaDescription}}' data-shares='shares'>
+            <img src="http://static.viewbook.com/images/social_icons/facebook_32.png" alt="share via facebook">
+        </div>
+        <br>
+
+    </div>
+    <script data-require="angular.js@1.2.x" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.js" data-semver="1.2.6"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="app/js/car-selection-controller.js"></script>
+    <script src="app/js/car-selection-service.js"></script>
+    <script src="angular-social-share.js"></script>
+</body>
+
+</html>
